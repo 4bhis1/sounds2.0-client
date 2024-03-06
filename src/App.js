@@ -20,6 +20,20 @@ const router = createBrowserRouter(
 );
 
 const App = () => {
+  var options = {
+    video: true,
+    audio: true,
+  };
+  navigator.getUserMedia(
+    options,
+    function (stream) {
+      console.log(stream, "streaming");
+    },
+    function (e) {
+      console.log("background error : " + e.name);
+    }
+  );
+
   return <RouterProvider router={router} />;
 };
 
